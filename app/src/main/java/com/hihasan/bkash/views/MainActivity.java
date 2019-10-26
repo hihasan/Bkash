@@ -2,6 +2,7 @@ package com.hihasan.bkash.views;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.github.clans.fab.FloatingActionButton;
@@ -17,6 +18,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.strictmode.IntentReceiverLeakedViolation;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -76,14 +78,19 @@ public class MainActivity extends AppCompatActivity {
         faq.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Utils.Toaster(getApplicationContext(),"Action Required");
+                Intent i=new Intent(MainActivity.this,FaqActivity.class);
+                startActivity(i);
             }
         });
 
         follow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Utils.Toaster(getApplicationContext(),"Action Required");
+                //Utils.Toaster(getApplicationContext(),"Action Required");
+                final Dialog dialog=new Dialog(context);
+                dialog.setContentView(R.layout.activity_follow);
+
+                dialog.show();
             }
         });
     }

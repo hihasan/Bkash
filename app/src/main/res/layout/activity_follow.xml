@@ -1,6 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:elevation="5dp"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="3dp">
 
-</LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="8sp"
+        android:paddingRight="72sp"
+        android:paddingLeft="72sp"
+        android:paddingBottom="8sp">
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16sp"
+            android:text="@string/follow"
+            android:textColor="@color/primary"
+            android:textSize="21sp"/>
+        <RelativeLayout
+            android:id="@+id/version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12sp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/name">
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/github"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/github"
+                android:layout_marginRight="8sp"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/facebook"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/github"
+                android:src="@drawable/facebook"
+                android:layout_marginLeft="8sp"
+                android:layout_marginRight="8sp"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/linkedin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/facebook"
+                android:src="@drawable/linkedin"
+                android:layout_marginLeft="8sp"/>
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

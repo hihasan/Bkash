@@ -1,6 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/custom_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/primary"
+        app:popupTheme="@style/AppTheme.PopupOverlay" >
 
-</LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/app_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/ubuntu"
+                android:text="@string/app_name"
+                android:textSize="28sp"
+                android:textColor="@android:color/white"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/back"
+                android:layout_width="32sp"
+                android:layout_height="32sp"
+                android:onClick="goBack"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="12sp"
+                android:src="@drawable/arrow"/>
+        </RelativeLayout>
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8sp"
+        android:layout_below="@id/custom_toolbar">
+    </RelativeLayout>
+
+</RelativeLayout>

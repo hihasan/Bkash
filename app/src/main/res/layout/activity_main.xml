@@ -97,7 +97,7 @@
             android:src="@drawable/security"
             android:tint="@android:color/white"
             app:maxImageSize="16sp"
-            fab:fab_label="Privacy Policy"
+            fab:fab_label="Follow Me"
             fab:fab_size="mini" />
     </com.github.clans.fab.FloatingActionMenu>
 
