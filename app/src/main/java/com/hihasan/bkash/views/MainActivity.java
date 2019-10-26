@@ -4,14 +4,18 @@ import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.github.clans.fab.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.hihasan.bkash.R;
+import com.hihasan.bkash.adapter.ContentAdapterTest;
+import com.hihasan.bkash.model.ContentModelTest;
 import com.hihasan.bkash.util.Utils;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.View;
 import android.view.Menu;
@@ -22,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
 
     FloatingActionButton about_us,faq,follow;
     Context context=this;
+    RecyclerView recycler;
+    ContentAdapterTest contentAdapterTest;
+    LinearLayoutManager linearLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +36,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        Utils.contentModel();
+
+        recycler = findViewById (R.id.content);
+        contentAdapterTest=new ContentAdapterTest(Utils.contentModelTests);
+        linearLayoutManager=new LinearLayoutManager(getApplicationContext(),RecyclerView.VERTICAL,false);
+        recycler.setLayoutManager(linearLayoutManager);
+        recycler.setAdapter(contentAdapterTest);
+
 
         initFab();
     }
