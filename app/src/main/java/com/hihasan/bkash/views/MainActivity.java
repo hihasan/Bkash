@@ -67,11 +67,11 @@ public class MainActivity extends AppCompatActivity {
 
 //        Utils.contentModel();
 
-//        recycler = findViewById (R.id.content);
-//        contentAdapterTest=new ContentAdapterTest(Utils.contentModelTests);
-//        linearLayoutManager=new LinearLayoutManager(getApplicationContext(),RecyclerView.VERTICAL,false);
-//        recycler.setLayoutManager(linearLayoutManager);
-//        recycler.setAdapter(contentAdapterTest);
+        recycler = findViewById (R.id.content);
+        contentAdapterTest=new ContentAdapterTest(Utils.contentModelTests);
+        linearLayoutManager=new LinearLayoutManager(getApplicationContext(),RecyclerView.VERTICAL,false);
+        recycler.setLayoutManager(linearLayoutManager);
+        recycler.setAdapter(contentAdapterTest);
 
         smsListView = findViewById(R.id.content);
 
