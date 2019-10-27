@@ -148,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
         arrayAdapter.clear();
         do {
 
-            if (smsInboxCursor.getString(indexAddress).toString().equals("bKash")){
+            if (smsInboxCursor.getString(indexAddress).toString().equalsIgnoreCase("BKASH")){
                 String str = "SMS From: " + smsInboxCursor.getString(indexAddress)
                         + "\n" + smsInboxCursor.getString(indexBody) + "\n";
                 arrayAdapter.add(str);
@@ -162,22 +162,4 @@ public class MainActivity extends AppCompatActivity {
         arrayAdapter.notifyDataSetChanged();
     }
 
-    public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
-        try {
-            String[] smsMessages = smsMessagesList.get(pos).split("\n");
-            String address = smsMessages[0];
-            String smsMessage = "";
-            for (int i = 1; i < smsMessages.length; ++i) {
-                smsMessage += smsMessages[i];
-            }
-
-            String smsMessageStr = address + "\n";
-            smsMessageStr += smsMessage;
-            Toast.makeText(this, smsMessageStr, Toast.LENGTH_SHORT).show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        // Todo : Thanks For Watching...
-    }
 }
