@@ -42,6 +42,97 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8sp"
         android:layout_below="@id/custom_toolbar">
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="How To Use"
+            android:textSize="21sp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8sp"
+            android:textColor="@color/primary"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/header_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/header"
+            android:text="@string/lorem"
+            android:gravity="center"
+            android:layout_marginTop="8sp"
+            android:layout_marginLeft="8sp"
+            android:layout_marginRight="8sp"/>
+        <RelativeLayout
+            android:id="@+id/header_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/header_1"
+            android:layout_margin="2sp">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/header_2_img"
+                android:layout_width="128sp"
+                android:layout_height="128sp"
+                android:layout_centerVertical="true"
+                android:text="@string/app_name"
+                android:textSize="32sp"
+                android:textColor="@color/primary"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/header_2_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/header_2_img"
+                android:text="@string/lorem"
+                android:gravity="left"
+                android:layout_marginLeft="8sp"
+                android:layout_centerVertical="true"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/header_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/header_2"
+            android:layout_margin="8sp">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/header_3_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8sp"
+                android:layout_toLeftOf="@id/header_3_img"
+                android:text="@string/lorem"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/header_3_img"
+                android:layout_width="128sp"
+                android:layout_height="128sp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:text="@string/app_name"
+                android:textSize="32sp"
+                android:textColor="@color/primary"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/header_4"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@id/header_3"
+            android:layout_margin="2sp">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/header_4_img"
+                android:layout_width="128sp"
+                android:layout_height="128sp"
+                android:layout_centerVertical="true"
+                android:textSize="32sp"
+                android:textColor="@color/primary"
+                android:text="@string/app_name" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/header_4_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/header_4_img"
+                android:text="@string/lorem"
+                android:gravity="left"
+                android:layout_marginLeft="8sp"
+                android:layout_centerVertical="true"/>
+        </RelativeLayout>
     </RelativeLayout>
 
 </RelativeLayout>
