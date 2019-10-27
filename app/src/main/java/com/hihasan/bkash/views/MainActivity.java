@@ -95,8 +95,7 @@ public class MainActivity extends AppCompatActivity {
         initFab();
     }
 
-    private void initFab()
-    {
+    private void initFab() {
         about_us= findViewById (R.id.about_us);
         faq= findViewById (R.id.faq);
         follow= findViewById (R.id.follow);
