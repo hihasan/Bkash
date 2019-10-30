@@ -45,9 +45,9 @@ public class MainActivity extends AppCompatActivity {
 
     //ListView
     private static MainActivity inst;
-    ArrayList<String> smsMessagesList = new ArrayList<String>();
-    ListView smsListView;
-    ArrayAdapter arrayAdapter;
+
+
+    ArrayList <ContentModelTest> itemList = new ArrayList<ContentModelTest>();
 
     public static MainActivity instance() {
         return inst;
@@ -65,25 +65,21 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-//        Utils.contentModel();
+        Utils.contentModel();
 
-//        recycler = findViewById (R.id.content);
-//        contentAdapterTest=new ContentAdapterTest(Utils.contentModelTests);
-//        linearLayoutManager=new LinearLayoutManager(getApplicationContext(),RecyclerView.VERTICAL,false);
-//        recycler.setLayoutManager(linearLayoutManager);
-//        recycler.setAdapter(contentAdapterTest);
 
-        smsListView = findViewById(R.id.content);
-
-        arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, smsMessagesList);
-        smsListView.setAdapter(arrayAdapter);
-
+        recycler = findViewById (R.id.content);
+        contentAdapterTest=new ContentAdapterTest(R.layout.activity_content_test, itemList);
+        linearLayoutManager=new LinearLayoutManager(getApplicationContext(),RecyclerView.VERTICAL,false);
+        recycler.setLayoutManager(linearLayoutManager);
+        recycler.setAdapter(contentAdapterTest);
 
         // Add SMS Read Permision At Runtime
         // Todo : If Permission Is Not GRANTED
         if(ContextCompat.checkSelfPermission(getBaseContext(), "android.permission.READ_SMS") == PackageManager.PERMISSION_GRANTED) {
 
             // Todo : If Permission Granted Then Show SMS
+            //;
             refreshSmsInbox();
 
         } else {
@@ -144,21 +140,17 @@ public class MainActivity extends AppCompatActivity {
         int indexBody = smsInboxCursor.getColumnIndex("body");
         int indexAddress = smsInboxCursor.getColumnIndex("address");
         if (indexBody < 0 || !smsInboxCursor.moveToFirst()) return;
-        arrayAdapter.clear();
         do {
 
             if (smsInboxCursor.getString(indexAddress).toString().equalsIgnoreCase("BKASH")){
-                String str = "SMS From: " + smsInboxCursor.getString(indexAddress)
-                        + "\n" + smsInboxCursor.getString(indexBody) + "\n";
-                arrayAdapter.add(str);
+//                String str = "SMS From: " + smsInboxCursor.getString(indexAddress)
+//                        + "\n" + smsInboxCursor.getString(indexBody) + "\n";
+                String str=smsInboxCursor.getString(indexBody);
+                itemList.add(new ContentModelTest(str));
             }
 
         } while (smsInboxCursor.moveToNext());
     }
 
-    public void updateList(final String smsMessage) {
-        arrayAdapter.insert(smsMessage, 0);
-        arrayAdapter.notifyDataSetChanged();
-    }
 
 }

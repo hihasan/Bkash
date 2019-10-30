@@ -11,11 +11,17 @@ public class Utils
 
     public static void contentModel(){
         contentModelTests=new ContentModelTest[]{
-                new ContentModelTest("THis is test"),
-                new ContentModelTest("THis is test"),
-                new ContentModelTest("THis is test"),
-                new ContentModelTest("THis is test"),
-                new ContentModelTest("THis is test"),
+                new ContentModelTest("Cash In Tk 1,200.00 from 01848207862 successful. Fee Tk 0.00. Balance Tk 1,225.97. TrxID 6JJ6GP052S at 19/10/2019 20:01. Download bKash App: bKa.sh/8app"),
+                new ContentModelTest("Cash In Tk 1,200.00 from 01848207862 successful. Fee Tk 0.00. Balance Tk 1,225.97. TrxID 6JJ6GP052S at 19/10/2019 20:01. Download bKash App: bKa.sh/8app"),
+                new ContentModelTest("Cash In Tk 1,200.00 from 01848207862 successful. Fee Tk 0.00. Balance Tk 1,225.97. TrxID 6JJ6GP052S at 19/10/2019 20:01. Download bKash App: bKa.sh/8app"),
+                new ContentModelTest("Cash In Tk 1,200.00 from 01848207862 successful. Fee Tk 0.00. Balance Tk 1,225.97. TrxID 6JJ6GP052S at 19/10/2019 20:01. Download bKash App: bKa.sh/8app"),
+                new ContentModelTest("Cash In Tk 1,200.00 from 01848207862 successful. Fee Tk 0.00. Balance Tk 1,225.97. TrxID 6JJ6GP052S at 19/10/2019 20:01. Download bKash App: bKa.sh/8app"),
+                new ContentModelTest("Cash In Tk 1,200.00 from 01848207862 successful. Fee Tk 0.00. Balance Tk 1,225.97. TrxID 6JJ6GP052S at 19/10/2019 20:01. Download bKash App: bKa.sh/8app"),
+                new ContentModelTest("Cash In Tk 1,200.00 from 01848207862 successful. Fee Tk 0.00. Balance Tk 1,225.97. TrxID 6JJ6GP052S at 19/10/2019 20:01. Download bKash App: bKa.sh/8app"),
+                new ContentModelTest("Cash In Tk 1,200.00 from 01848207862 successful. Fee Tk 0.00. Balance Tk 1,225.97. TrxID 6JJ6GP052S at 19/10/2019 20:01. Download bKash App: bKa.sh/8app"),
+                new ContentModelTest("Cash In Tk 1,200.00 from 01848207862 successful. Fee Tk 0.00. Balance Tk 1,225.97. TrxID 6JJ6GP052S at 19/10/2019 20:01. Download bKash App: bKa.sh/8app"),
+                new ContentModelTest("Cash In Tk 1,200.00 from 01848207862 successful. Fee Tk 0.00. Balance Tk 1,225.97. TrxID 6JJ6GP052S at 19/10/2019 20:01. Download bKash App: bKa.sh/8app"),
+                new ContentModelTest("Cash In Tk 1,200.00 from 01848207862 successful. Fee Tk 0.00. Balance Tk 1,225.97. TrxID 6JJ6GP052S at 19/10/2019 20:01. Download bKash App: bKa.sh/8app"),
         };
     }
     public static void Toaster(Context c, String msg){

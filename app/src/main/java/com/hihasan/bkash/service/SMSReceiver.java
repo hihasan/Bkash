@@ -34,7 +34,7 @@ public class SMSReceiver extends BroadcastReceiver {
 
             //this will update the UI with message
             MainActivity inst = MainActivity.instance();
-            inst.updateList(smsMessageStr);
+//            inst.updateList(smsMessageStr);
         }
     }
 }
