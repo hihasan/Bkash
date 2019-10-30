@@ -20,6 +20,7 @@ import com.hihasan.bkash.util.Utils;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -131,6 +132,36 @@ public class MainActivity extends AppCompatActivity {
                 final Dialog dialog=new Dialog(context);
                 dialog.setContentView(R.layout.activity_follow);
 
+                AppCompatImageView github = dialog.findViewById(R.id.github);
+                AppCompatImageView facebook = dialog.findViewById (R.id.facebook);
+                AppCompatImageView linkedin = dialog.findViewById (R.id.linkedin);
+
+                github.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Uri uri = Uri.parse("https://github.com/hihasan"); // missing 'http://' will cause crashed
+                        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                        startActivity(intent);
+                    }
+                });
+
+                facebook.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Uri uri = Uri.parse("https://www.facebook.com/hnadim4"); // missing 'http://' will cause crashed
+                        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                        startActivity(intent);
+                    }
+                });
+
+                linkedin.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Uri uri = Uri.parse("https://www.linkedin.com/in/hihasan/"); // missing 'http://' will cause crashed
+                        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                        startActivity(intent);
+                    }
+                });
                 dialog.show();
             }
         });
@@ -147,6 +178,7 @@ public class MainActivity extends AppCompatActivity {
             if (smsInboxCursor.getString(indexAddress).toString().equalsIgnoreCase("BKASH")){
 //                String str = "SMS From: " + smsInboxCursor.getString(indexAddress)
 //                        + "\n" + smsInboxCursor.getString(indexBody) + "\n";
+                //itemList.add(new ContentModel(str));
                 String str=smsInboxCursor.getString(indexBody);
                 String [] data1=str.split("Tk",2);
                 System.out.println("Type: "+data1[0]);
@@ -159,7 +191,7 @@ public class MainActivity extends AppCompatActivity {
                 String [] data3=str3.split("successful",2);
                 System.out.println("From: "+data3[0]);
                 String str4=data3[1];
-//        System.out.println(str4);
+
 
                 String []data4=str4.split("Balance Tk",2);
                 String str5=data4[1];
@@ -173,7 +205,7 @@ public class MainActivity extends AppCompatActivity {
 
                 String [] data7=str7.split("\\.",2);
                 System.out.println("Date & Time: "+data7[0]);
-                //itemList.add(new ContentModel(str));
+
 
                 itemList.add(new ContentModel(data1[0],data3[0],data6[0],data7[0],data2[0]));
             }
