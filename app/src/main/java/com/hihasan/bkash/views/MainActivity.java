@@ -12,7 +12,9 @@ import android.os.Bundle;
 import com.github.clans.fab.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.hihasan.bkash.R;
+import com.hihasan.bkash.adapter.ContentAdapter;
 import com.hihasan.bkash.adapter.ContentAdapterTest;
+import com.hihasan.bkash.model.ContentModel;
 import com.hihasan.bkash.model.ContentModelTest;
 import com.hihasan.bkash.util.Utils;
 
@@ -40,14 +42,14 @@ public class MainActivity extends AppCompatActivity {
     FloatingActionButton about_us,faq,follow;
     Context context=this;
     RecyclerView recycler;
-    ContentAdapterTest contentAdapterTest;
+    ContentAdapter contentAdapter;
     LinearLayoutManager linearLayoutManager;
 
     //ListView
     private static MainActivity inst;
 
 
-    ArrayList <ContentModelTest> itemList = new ArrayList<ContentModelTest>();
+    ArrayList <ContentModel> itemList = new ArrayList<ContentModel>();
 
     public static MainActivity instance() {
         return inst;
@@ -65,14 +67,14 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Utils.contentModel();
+        //Utils.contentModel();
 
 
         recycler = findViewById (R.id.content);
-        contentAdapterTest=new ContentAdapterTest(R.layout.activity_content_test, itemList);
+        contentAdapter=new ContentAdapter(R.layout.activity_content, itemList);
         linearLayoutManager=new LinearLayoutManager(getApplicationContext(),RecyclerView.VERTICAL,false);
         recycler.setLayoutManager(linearLayoutManager);
-        recycler.setAdapter(contentAdapterTest);
+        recycler.setAdapter(contentAdapter);
 
         // Add SMS Read Permision At Runtime
         // Todo : If Permission Is Not GRANTED
@@ -146,7 +148,34 @@ public class MainActivity extends AppCompatActivity {
 //                String str = "SMS From: " + smsInboxCursor.getString(indexAddress)
 //                        + "\n" + smsInboxCursor.getString(indexBody) + "\n";
                 String str=smsInboxCursor.getString(indexBody);
-                itemList.add(new ContentModelTest(str));
+                String [] data1=str.split("Tk",2);
+                System.out.println("Type: "+data1[0]);
+                String str2=data1[1];
+
+                String [] data2=str2.split("from",2);
+                System.out.println("Ammount: "+data2[0]);
+                String str3=data2[1];
+
+                String [] data3=str3.split("successful",2);
+                System.out.println("From: "+data3[0]);
+                String str4=data3[1];
+//        System.out.println(str4);
+
+                String []data4=str4.split("Balance Tk",2);
+                String str5=data4[1];
+                String [] data5=str5.split("\\. TrxID",2);
+                System.out.println("Total Ammount:  "+data5[0]);
+                String str6=data5[1];
+
+                String [] data6=str6.split("at",2);
+                System.out.println("Transaction ID: "+data6[0]);
+                String str7=data6[1];
+
+                String [] data7=str7.split("\\.",2);
+                System.out.println("Date & Time: "+data7[0]);
+                //itemList.add(new ContentModel(str));
+
+                itemList.add(new ContentModel(data1[0],data3[0],data6[0],data7[0],data2[0]));
             }
 
         } while (smsInboxCursor.moveToNext());

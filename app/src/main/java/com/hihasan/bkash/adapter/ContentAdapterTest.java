@@ -29,8 +29,8 @@ public class ContentAdapterTest extends RecyclerView.Adapter<ContentAdapterTest.
     }
     @Override
     public int getItemCount() {
-        //return itemList == null ? 0 : itemList.size();
-        return itemList.size();
+        return itemList == null ? 0 : itemList.size();
+        //return itemList.size();
     }
 
     @NonNull

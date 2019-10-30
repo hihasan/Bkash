@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/relative"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -22,7 +22,7 @@
             android:layout_height="wrap_content">
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/crop_img"
+                android:id="@+id/bkash_img"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="8sp"
@@ -34,43 +34,40 @@
                 android:id="@+id/layer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/crop_img">
+                android:layout_toRightOf="@id/bkash_img">
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/buyerNameValue"
+                    android:id="@+id/type"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8sp"
                     android:layout_marginLeft="8sp"
-                    android:fontFamily="serif"
-                    android:text="this is test"
+                    android:text="Cash In"
                     android:textStyle="bold"
                     android:textColor="@color/primary"
                     android:textSize="16sp" />
 
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/invoiceno"
+                    android:id="@+id/from_phn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8sp"
                     android:layout_marginTop="8sp"
-                    android:layout_below="@id/buyerNameValue"
-                    android:fontFamily="serif"
-                    android:text="phone"
+                    android:layout_below="@id/type"
+                    android:text="01737512549"
                     android:textColor="@color/primary"
                     android:textSize="16sp" />
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/invoicenovalue"
+                    android:id="@+id/trxid"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/invoiceno"
+                    android:layout_below="@id/from_phn"
                     android:layout_marginLeft="8sp"
                     android:layout_marginTop="2sp"
                     android:layout_marginBottom="8sp"
-                    android:fontFamily="serif"
-                    android:text="this is test"
+                    android:text="TrxID 6JJ6GP052S"
                     android:textColor="@color/primary"
                     android:textSize="16sp" />
 
@@ -81,7 +78,7 @@
                     android:layout_marginTop="24sp"
                     android:layout_marginRight="8sp"
                     android:layout_alignParentRight="true"
-                    android:text="Date"
+                    android:text="19/10/2019 20:01"
                     android:textColor="@color/primary"
                     android:textSize="12sp" />
 
@@ -96,8 +93,8 @@
                         android:id="@+id/currency"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="1sp"
-                        android:text="$"
+                        android:layout_marginRight="3sp"
+                        android:text="BDT"
                         android:textColor="@color/primary"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -107,8 +104,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_toRightOf="@id/currency"
-                        android:layout_marginRight="1sp"
-                        android:text="this is test"
+                        android:layout_marginRight="2sp"
+                        android:text="1,200.00"
                         android:textColor="@color/primary"
                         android:textSize="16sp"
                         android:textStyle="bold" />
