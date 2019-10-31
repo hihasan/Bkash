@@ -41,6 +41,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     FloatingActionButton about_us,faq,follow;
+    AppCompatImageView search;
     Context context=this;
     RecyclerView recycler;
     ContentAdapter contentAdapter;
@@ -95,9 +96,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initFab() {
-        about_us= findViewById (R.id.about_us);
-        faq= findViewById (R.id.faq);
-        follow= findViewById (R.id.follow);
+        about_us = findViewById (R.id.about_us);
+        faq = findViewById (R.id.faq);
+        follow = findViewById (R.id.follow);
+        search = findViewById (R.id.search);
+
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Utils.Toaster(getApplicationContext(),"Action Required");
+            }
+        });
 
         about_us.setOnClickListener(new View.OnClickListener() {
             @Override
