@@ -28,6 +28,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.strictmode.IntentReceiverLeakedViolation;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -188,35 +189,44 @@ public class MainActivity extends AppCompatActivity {
 //                String str = "SMS From: " + smsInboxCursor.getString(indexAddress)
 //                        + "\n" + smsInboxCursor.getString(indexBody) + "\n";
                 //itemList.add(new ContentModel(str));
-                String str=smsInboxCursor.getString(indexBody);
-                String [] data1=str.split("Tk",2);
-                System.out.println("Type: "+data1[0]);
-                String str2=data1[1];
+                try {
+                    String str=smsInboxCursor.getString(indexBody);
+                    String [] data1=str.split("Tk",2);
+                    System.out.println("Type: "+data1[0]);
+                    String str2=data1[1];
 
-                String [] data2=str2.split("from",2);
-                System.out.println("Ammount: "+data2[0]);
-                String str3=data2[1];
+                    String [] data2=str2.split("from",2);
+                    System.out.println("Ammount: "+data2[0]);
+                    String str3=data2[1];
 
-                String [] data3=str3.split("successful",2);
-                System.out.println("From: "+data3[0]);
-                String str4=data3[1];
-
-
-                String []data4=str4.split("Balance Tk",2);
-                String str5=data4[1];
-                String [] data5=str5.split("\\. TrxID",2);
-                System.out.println("Total Ammount:  "+data5[0]);
-                String str6=data5[1];
-
-                String [] data6=str6.split("at",2);
-                System.out.println("Transaction ID: "+data6[0]);
-                String str7=data6[1];
-
-                String [] data7=str7.split("\\.",2);
-                System.out.println("Date & Time: "+data7[0]);
+                    String [] data3=str3.split("successful",2);
+                    System.out.println("From: "+data3[0]);
+                    String str4=data3[1];
 
 
-                itemList.add(new ContentModel(data1[0],data3[0],data6[0],data7[0],data2[0]));
+                    String []data4=str4.split("Balance Tk",2);
+                    String str5=data4[1];
+                    String [] data5=str5.split("\\. TrxID",2);
+                    System.out.println("Total Ammount:  "+data5[0]);
+                    String str6=data5[1];
+
+                    String [] data6=str6.split("at",2);
+                    System.out.println("Transaction ID: "+data6[0]);
+                    String str7=data6[1];
+
+                    String [] data7=str7.split("\\.",2);
+                    System.out.println("Date & Time: "+data7[0]);
+
+
+                    itemList.add(new ContentModel(data1[0],data3[0],data6[0],data7[0],data2[0]));
+
+                }
+
+                catch (ArrayIndexOutOfBoundsException e){
+                    e.printStackTrace();
+//                    String s=e.printStackTrace();
+//                    Log.e("Hihasan",e.printStackTrace());
+                }
             }
 
         } while (smsInboxCursor.moveToNext());
